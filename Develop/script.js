@@ -28,15 +28,25 @@ const collectEmployees = function() {
 
     let newEmployee = {firstName: newFirstName, lastName: newLastName, salary: newSalary};
     employeesArray.push(newEmployee);
-    console.log(employeesArray);
     submitNewEmployee = window.confirm("Submit another employee?");    
   }
+  // console.log(employeesArray);
+  return employeesArray;
 }
 
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  let totalSalary = 0;
+  for (let i = 0; i < employeesArray.length; i++) {
+    const currentEmployee = employeesArray[i];
+    totalSalary += parseInt(currentEmployee.salary);
+  }
+  let averageSalary = totalSalary/employeesArray.length;
+  averageSalary = `${averageSalary}`;
+  console.log(`Average salary: $` + averageSalary);
+  console.log(`Number of employees: ` + employeesArray.length);
 }
 
 // Select a random employee
