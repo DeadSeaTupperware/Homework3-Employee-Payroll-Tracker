@@ -1,33 +1,38 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 let employeesArray = [];
+let submitNewEmployee = true;
 
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-  let newFirstName = prompt("Please enter first name of employee.");
-  if (!newFirstName) {
-    return;
-  }
+  while (submitNewEmployee) {
+    let newFirstName = prompt("Please enter first name of employee.");
+    if (!newFirstName) {
+      return;
+    }
 
-  let newLastName = prompt("Please enter last name of employee.");
-  if (!newLastName) {
-    return;
-  }
+    let newLastName = prompt("Please enter last name of employee.");
+    if (!newLastName) {
+      return;
+    }
 
-  let newSalary = prompt("Please enter employee's salary as a number.");
-  while (isNaN(newSalary)) {
-    alert("Input must be a number! Please enter employee's salary as a number.");
-    newSalary = prompt("Please enter employee's salary as a number.");
-  }
-  if (!newSalary) {
-    return;
-  }
+    let newSalary = prompt("Please enter employee's salary as a number.");
+    while (isNaN(newSalary)) {
+      alert("Input must be a number!");
+      newSalary = prompt("Please enter employee's salary as a number.");
+    }
+    if (!newSalary) {
+      return;
+    }
 
-  let newEmployee = {firstName: newFirstName, lastName: newLastName, salary: newSalary};
-  employeesArray.push(newEmployee);
-  console.log(employeesArray);
+    let newEmployee = {firstName: newFirstName, lastName: newLastName, salary: newSalary};
+    employeesArray.push(newEmployee);
+    console.log(employeesArray);
+    submitNewEmployee = window.confirm("Submit another employee?");    
+  }
 }
+
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
