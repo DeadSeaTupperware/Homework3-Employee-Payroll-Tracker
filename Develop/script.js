@@ -5,22 +5,26 @@ let employeesArray = [];
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-  let firstName = prompt("Please enter first name of employee.");
-  if (!firstName) {
+  let newFirstName = prompt("Please enter first name of employee.");
+  if (!newFirstName) {
     return;
   }
 
-  let lastName = prompt("Please enter last name of employee.");
-  if (!lastName) {
+  let newLastName = prompt("Please enter last name of employee.");
+  if (!newLastName) {
     return;
   }
 
-  let salary = prompt("Please enter employee's salary.");
-  if (!salary) {
+  let newSalary = prompt("Please enter employee's salary as a number.");
+  while (isNaN(newSalary)) {
+    alert("Input must be a number! Please enter employee's salary as a number.");
+    newSalary = prompt("Please enter employee's salary as a number.");
+  }
+  if (!newSalary) {
     return;
   }
 
-  let newEmployee = [firstName, lastName, salary];
+  let newEmployee = {firstName: newFirstName, lastName: newLastName, salary: newSalary};
   employeesArray.push(newEmployee);
   console.log(employeesArray);
 }
