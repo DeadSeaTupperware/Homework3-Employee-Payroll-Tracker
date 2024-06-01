@@ -40,13 +40,13 @@ const displayAverageSalary = function(employeesArray) {
   let totalSalary = 0;
   for (let i = 0; i < employeesArray.length; i++) {
     const currentEmployee = employeesArray[i];
-    totalSalary += parseInt(currentEmployee.salary);
+    totalSalary += currentEmployee.salary;
   }
   let averageSalary = totalSalary/employeesArray.length;
   console.log(`The average salary between our ${employeesArray.length} employee(s) is ${averageSalary.toLocaleString("en-US",{
     style:"currency",
     currency:"USD"
-  })}`);
+    })}`);
 }
 
 // Select a random employee
