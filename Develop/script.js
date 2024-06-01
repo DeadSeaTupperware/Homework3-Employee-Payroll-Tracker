@@ -5,7 +5,7 @@ let submitNewEmployee = true;
 
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  //Get user input to create and return an array of employee objects
   while (submitNewEmployee) {
     let newFirstName = prompt("Please enter first name of employee.");
     if (!newFirstName) {
@@ -26,34 +26,35 @@ const collectEmployees = function() {
       return;
     }
 
-    let newEmployee = {firstName: newFirstName, lastName: newLastName, salary: newSalary};
+    let newEmployee = {firstName: newFirstName, lastName: newLastName, salary: parseInt(newSalary)};
     employeesArray.push(newEmployee);
     submitNewEmployee = window.confirm("Submit another employee?");    
   }
-  // console.log(employeesArray);
   return employeesArray;
 }
 
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+  //Calculate and display the average salary
   let totalSalary = 0;
   for (let i = 0; i < employeesArray.length; i++) {
     const currentEmployee = employeesArray[i];
     totalSalary += parseInt(currentEmployee.salary);
   }
   let averageSalary = totalSalary/employeesArray.length;
-  console.log(`Average salary: $${averageSalary}`);
-  console.log(`Number of employees: ${employeesArray.length}`);
+  console.log(`The average salary between our ${employeesArray.length} employee(s) is ${averageSalary.toLocaleString("en-US",{
+    style:"currency",
+    currency:"USD"
+  })}`);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+  //Select and display a random employee
   let randomEmployee = employeesArray[Math.floor(Math.random()*employeesArray.length)];
   let randomEmployeeName = `${randomEmployee.firstName} ${randomEmployee.lastName}`;
-  console.log(`Random employee: ${randomEmployeeName}`);
+  console.log(`Congratulations to ${randomEmployeeName}, our random drawing winner!`);
 }
 
 /*
