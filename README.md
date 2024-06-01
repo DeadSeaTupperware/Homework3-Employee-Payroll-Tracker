@@ -14,7 +14,7 @@ The goal of this project was to create an employee payroll tracker for a payroll
 
 ## Screenshot
 
-![Screenshot](assets/images/Screenshot.png)
+![Screenshot](Assets/Screenshot.png)
 
 ## Deployed Application
 
